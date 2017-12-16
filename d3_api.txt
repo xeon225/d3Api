@@ -1,0 +1,126 @@
+//select 状态	
+select.empty()	//为空返回true,不为空返回false
+	.node()		//返回第一个非空元素，为空返回null
+	.size()		//返回选择集中的元素个数
+
+//select 属性
+select.attr()		//设置获取属性
+	.classed()		//设定获取css类
+	.style()		//设定获取样式	
+	.property()		//设定获取选择集的属性
+	.text()			//设定获取选择集的文本
+	.html()			//设定获取选择集的内部html
+
+//select 添加、插入、删除
+select.append()		//选择集的末尾添加一个元素	
+	.insert()		//选择集的指定元素之前插入一个元素
+	.remove()		//删除选择集中的元素
+
+//select 数据绑定
+select.datum()		//选择集中的每一个元素都绑定相同的数据
+	.data()			//选择集中的每一个元素分别绑定数组的每一项
+		.update		//代表已经存在的元素，修改元素的属性
+		.enter		//代表丢失的元素，它们积即将加入选择集，加入他们并赋予它们属性
+		.exit		//代表多余的元素，删除它们
+
+//selection 常用方法
+selection.filter(function(d,i))		//过滤
+		.sort(function(a,b))		//排序
+		.each(function(d,i))		//遍历
+		.call(function(d))			//传递
+
+//数组常用方法
+	//排序
+selection.sort(d3.ascending)		//递增
+			(d3.descending)			//递减
+	//求值
+	d3.min(array)					//最小值
+	d3.max(array)					//最大值
+	d3.extend(array)				//最小值和最大值
+	//生成和操作	
+	d3.range(d)						//等差数列
+	d3.shuffle(d)					//随机排列
+	d3.merge(arrays)				//合并两个数组
+	//映射
+	d3.map
+
+//定量比例尺
+	//线性比例尺
+var linear = d3.scale.linear()			//创建一个线性比例尺
+	linear(x)							//输入一个在定义域的值x，返回值域内对应的值
+	linear.invert(y)					//输入一个在值域内的值，返回定义域内对应的值
+	linear.domain([numbers]) 			//设定或获取定义域
+	linear.range([values]) 				//设定或获取值域
+	linear.rangeRound([values])     	//代替range()，输出值四舍五入，为整数
+	linear.clamp([boolean])         	//默认false
+	linear.nice([count])     			//扩展定义域使得它由优化的整数值开始和结束
+	linear.tickes([count]) 				//设定或获取定义域内具有代表性的值的数目
+	linear.tickFormat(count,[format])	//用于设置定义域内具有代表性的值的表示形式
+
+	//指数和对数比例尺
+var 
+
+
+3.x 4.x区别
+//布局的变化规则
+d3.layout.cluster		d3.cluster
+d3.layout.hierarchy		d3.hierarchy
+d3.layout.pack			d3.pach
+d3.layout.partition		d3.partition
+d3.layout.tree			d3.tree
+d3.layout.treemap		d3.treemap
+d3.layout.chord			d3.chord
+d3.layout.histogram		d3.histogram
+d3.layout.pie			d3.pie
+d3.layout.stack			d3.stack
+d3.layout.bundle		d3.hierarchy
+d3.layout.force			d3.forceSimulation
+
+//生成器的变化规则
+d3.svg.line				d3.line
+d3.svg.line.radial		d3.radialLine
+d3.svg.area				d3.area
+d3.svg.area.radial      d3.radialArea
+d3.svg.src				d3.arc
+d3.svg.symbol			d3.symbol
+d3.svg.symbolTypes		d3.symbolTypes
+d3.svg.diagonal			//移除
+d3.svg.diagonal.radial  //移除
+//d3.line和d3.area 设置插值模式的命名有如下变化:
+linear					d3.curveLinear
+linear-closed			d3.curveLinearClosed
+step					d3.curveStep
+step-before				d3.curveStepBefore
+
+//比例尺的变化规则
+//将scale之后的点去掉，其后的第一个字母改为大写
+d3.scale.linear 		d3.scaleLinear			//线性比例尺
+d3.scale.sqrt			d3.scaleSqrt
+d3.scale.pow			d3.scalePow
+d3.scale.log			d3.scaleLog
+//颜色模板
+d3.scale.category10		d3.schemeCategory10
+d3.scale.category20		d3.schemeCategory20
+d3.scale.category20b	d3.schemeCategory20b
+d3.scale.category20c	d3.schemeCategory20c
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
