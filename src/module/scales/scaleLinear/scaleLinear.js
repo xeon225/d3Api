@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from 'components/App'
+import App from 'components/scaleLinear/App'
 
 /* eslint-disable no-new */
 new Vue({
