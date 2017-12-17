@@ -1,23 +1,24 @@
 <template>
-  <div>
-    <h1>{{ msg }}</h1>
-    <div>
+  <div class="padding20">
+    <div class="fs-20">{{ msg }}</div>
+    <div class="margint30">
+      <div class="fs-16 text-darker">d3.scaleLinear()</div>
+      <div class="text-dark">创建一个线性比例尺</div>
       <pre>
         <code class="lang-javascript">
-    //svg 尺寸
-    var margin = {top: 20, right: 20, bottom: 20, left: 20},
-        width = 500 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
-    //条宽
-    var barWidth = 8;
-    //数据集
-    var dataset = [1,2,3,4,5,6,7,8,9,10];
-    //默认线性比例尺
+    var linearScale = d3.scaleLinear(); //默认线性比例尺
+        </code>
+      </pre>
+      <div class="fs-16 text-darker">linear(x)</div>
+      <div class="text-dark">输入一个在<span class="text-red">定义域</span>内的值，返回<span class="text-red">值域</span>内对应的值</div>
+      <pre>
+        <code class="lang-javascript">
     var linearScale = d3.scaleLinear();
+    lineScale(5); //返回5
         </code>
       </pre>
     </div>
-    
+    <div id="scaleLinear"></div>
   </div>
 </template>
 
@@ -27,8 +28,7 @@ import Lib from 'assets/Lib.js';
 export default {
   data () {
     return {
-      msg: '线性比例尺',
-      markdownhtml: '<pre><code>123</code></pre>'
+      msg: '线性比例尺'
     }
   },
   components: {
@@ -42,16 +42,7 @@ export default {
   methods: {
     scaleLinear:function(){
       var d3 = this.d3;
-      //svg 尺寸
-      var margin = {top: 20, right: 20, bottom: 20, left: 20},
-          width = 500 - margin.left - margin.right,
-          height = 500 - margin.top - margin.bottom;
-      //条宽
-      var barWidth = 8;
-      //数据集
-      var dataset = [1,2,3,4,5,6,7,8,9,10];
-      //默认线性比例尺
-      var linearScale = d3.scaleLinear();
+      
     }
   },
   ready:function(){
@@ -62,7 +53,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1 {
-  color: #42b983;
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
 }
 </style>
