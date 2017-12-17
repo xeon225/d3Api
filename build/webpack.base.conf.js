@@ -63,7 +63,6 @@ module.exports = {
       }
     ]
   },
-
   vue: {
     loaders: utils.cssLoaders()
   }

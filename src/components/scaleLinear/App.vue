@@ -3,17 +3,17 @@
     <h1>{{ msg }}</h1>
     <div>
       <pre>
-        <code class="nohighlight">
-//svg 尺寸
-var margin = {top: 20, right: 20, bottom: 20, left: 20},
-    width = 500 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-//条宽
-var barWidth = 8;
-//数据集
-var dataset = [1,2,3,4,5,6,7,8,9,10];
-//默认线性比例尺
-var linearScale = d3.scaleLinear();
+        <code class="lang-javascript">
+    //svg 尺寸
+    var margin = {top: 20, right: 20, bottom: 20, left: 20},
+        width = 500 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+    //条宽
+    var barWidth = 8;
+    //数据集
+    var dataset = [1,2,3,4,5,6,7,8,9,10];
+    //默认线性比例尺
+    var linearScale = d3.scaleLinear();
         </code>
       </pre>
     </div>
@@ -22,11 +22,13 @@ var linearScale = d3.scaleLinear();
 </template>
 
 <script>
-import Lib from 'assets/Lib.js'
+import Lib from 'assets/Lib.js';
+
 export default {
   data () {
     return {
       msg: '线性比例尺',
+      markdownhtml: '<pre><code>123</code></pre>'
     }
   },
   components: {
