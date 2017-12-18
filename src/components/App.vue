@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="padding20 fs-14 lh-28">
+    <div><a href="/selection/select.html">选择集(select)</a></div>
     <div><a href="/scales/scaleLinear.html">比例尺(Scales)</a></div>
   </div>
 </template>
