@@ -1,16 +1,16 @@
 <template>
-  <div class="padding20">
-    <div class="fs-20">{{ msg }}</div>
-    <div class="margint10">
+  <div class="">
+    <div class="fs-20 lh-40 borderb padding20">{{ msg }}</div>
+    <div class="padding20">
       <!-- d3.select() -->
       <div>
         <div class="fs-16 text-blue" id="select">d3.select()</div>
         <div class="text-dark">返回匹配选择器的第一个元素</div>
-        <pre>
-          <code class="lang-javascript">
-      d3.select("body");        //选择body元素
-      d3.select("#important");  //选择id为important的元素
-      d3.select(".content");    //选择类为content的第一个元素
+        <pre v-highlight class="flex-container marginv10">
+          <code class="flex1 paddingh10">
+  d3.select("body");        //选择body元素
+  d3.select("#important");  //选择id为important的元素
+  d3.select(".content");    //选择类为content的第一个元素
           </code>
         </pre>
       </div>
@@ -19,11 +19,11 @@
       <div>
         <div class="fs-16 text-blue" id="selectAll">d3.selectAll()</div>
         <div class="text-dark">返回匹配选择器的所有元素</div>
-        <pre>
-          <code class="lang-javascript">
-      d3.selectAll("p");            //选择所有的p元素
-      d3.selectAll(".content");     //选择类为content的所有元素
-      d3.selectAll("ul li");        //选择ul中所有的li元素
+        <pre v-highlight>
+          <code>
+  d3.selectAll("p");            //选择所有的p元素
+  d3.selectAll(".content");     //选择类为content的所有元素
+  d3.selectAll("ul li");        //选择ul中所有的li元素
           </code>
         </pre>
       </div>
@@ -33,8 +33,8 @@
       <div>
         <div class="fs-16 text-blue" id="selectionAttr">selection.attr(name[,value])</div>
         <div class="text-dark">设置或获取选择集的属性,name是属性名,value是属性值</div>
-        <pre>
-          <code class="lang-javascript">
+        <pre v-highlight>
+          <code>
       var rects = svg.selectAll("rect")
         .data(dataset)
         .enter()
@@ -57,8 +57,8 @@
       <div>
         <div class="fs-16 text-blue" id="selectionClassed">d3.classed(name[,value])</div>
         <div class="text-dark">设定或获取选择集的css类,name是类名,value是一个布尔值</div>
-        <pre>
-          <code class="lang-javascript">
+        <pre v-highlight>
+          <code>
       d3.select("p");            
           .attr("class", "text-red fs-12")  //类名间用空格隔开
           </code>
@@ -77,8 +77,8 @@
         <div class="text-dark">返回第一个非空元素,如果选择集为空,返回null</div>
         <div class="fs-16 text-blue">selection.size()</div>
         <div class="text-dark">返回选择集中的元素个数</div>
-        <pre>
-          <code class="xml">
+        <pre v-highlight>
+          <code>
       &lt;p&gt; Text 1 &lt;/p&gt;
       &lt;p&gt; Text 2 &lt;/p&gt;
       &lt;p&gt; Text 3 &lt;/p&gt;
@@ -101,7 +101,7 @@ import Lib from 'assets/Lib.js';
 export default {
   data () {
     return {
-      msg: '选择(select)'
+      msg: 'Select 选择'
     }
   },
   components: {

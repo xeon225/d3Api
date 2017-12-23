@@ -1,13 +1,14 @@
 {	
 	"title":"D3 Api",
+	"logo":"M0,0h7.75a45.5,45.5 0 1 1 0,91h-7.75v-20h7.75a25.5,25.5 0 1 0 0,-51h-7.75zm36.2510,0h32a27.75,27.75 0 0 1 21.331,45.5a27.75,27.75 0 0 1 -21.331,45.5h-32a53.6895,53.6895 0 0 0 18.7464,-20h13.2526a7.75,7.75 0 1 0 0,-15.5h-7.75a53.6895,53.6895 0 0 0 0,-20h7.75a7.75,7.75 0 1 0 0,-15.5h-13.2526a53.6895,53.6895 0 0 0 -18.7464,-20z",
 	"data":[
 		{
-			"name":"核心(Core)",
-			"url":"/selection/core.html",
+			"name":"Core 核心",
+			"url":"/selection",
 			"items":[
 				{
-					"name":"选择(select)",
-					"url":"/selection/select.html",
+					"name":"Select 选择",
+					"url":"/select",
 					"moduleList":[
 						{
 							"name":"d3.select()",
@@ -30,12 +31,12 @@
 			]
 		},
 		{
-			"name":"比例尺(Scales)",
-			"url":"/selection/scales.html",
+			"name":"Scales 比例尺",
+			"url":"/scales",
 			"items":[
 				{
-					"name":"线性比例尺(scaleLinear)",
-					"url":"/scaleLinear/scaleLinear.html"
+					"name":"scaleLinear 线性比例尺",
+					"url":"/scales"
 				}
 			]
 		}

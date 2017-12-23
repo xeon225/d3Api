@@ -4,7 +4,7 @@
     <div class="margint30">
       <div class="fs-16 text-darker">d3.scaleLinear()</div>
       <div class="text-dark">创建一个线性比例尺</div>
-      <pre>
+      <pre v-highlight>
         <code class="lang-javascript">
     var linearScale = d3.scaleLinear(); //默认线性比例尺
         </code>
