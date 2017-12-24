@@ -1,3 +1,4 @@
+import App from '../components/App.vue';
 import Selection from '../components/selection/App.vue';
 import SelectAll from '../components/selection/select.vue';
 
@@ -5,13 +6,16 @@ import SelectAll from '../components/selection/select.vue';
 import Scales from '../components/scaleLinear/App.vue';
 
 export default {
-	'selection': {
-		component: Selection
+	'/': {
+		component: App						//默认
 	},
-	'select': {
-		component: SelectAll
-	},
-	'scales': {
-		component: Scales
-	}
+		'selection': {
+			component: Selection			//核心
+		},
+			'select': {
+				component: SelectAll		//选择
+			},
+		'scales': {
+			component: Scales
+		}
 }

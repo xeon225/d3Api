@@ -3,7 +3,7 @@ html {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 body{
-	font-family: $font-family-base;
+	//font-family: $font-family-base;
 	font-size: $font-size-base;
 	line-height: $line-height-base;
 }
@@ -20,7 +20,7 @@ body{
 	}
 } 
 /*text-Size*/
-@for $i from 10 through 20{
+@for $i from 10 through 40{
 	.fs-#{$i}{
 		font-size: $i + px;
 	}
