@@ -1,4 +1,4 @@
-import App from '../components/App.vue';
+import App from '../components/d3/App.vue';
 import Selection from '../components/selection/App.vue';
 import SelectAll from '../components/selection/select.vue';
 

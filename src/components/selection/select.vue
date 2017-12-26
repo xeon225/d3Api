@@ -52,6 +52,8 @@
     })
           </code>
         </pre>
+        <div id="selectionAttr_Sample">
+        </div>
       </div>
       <!-- d3.selectionClassed() -->
       <div class="margint50 marginb20">
@@ -59,13 +61,21 @@
         <div class="lh-36">设定或获取选择集的css类,name是类名,value是一个布尔值</div>
         <pre v-highlight class="flex-container marginv10">
           <code class="flex1 paddingh10">
-  d3.select("p");
-      .attr("class", "text-red fs-12")  //类名间用空格隔开
+  rects.classed({   //根据索引给元素添加不同的css类
+    "even":function(d,i){return i%2==0?true:false;},
+    "odd":function(d,i){return i%2==0?false:true;}
+  })
+  rects.on("click",function(){    //点击时切换css类
+    var rect=d3.select(this);
+    if(rect.classed("stroke")){
+      rect.classed("stroke",false);
+    }else{
+      rect.classed("stroke",true);
+    }
+  })
           </code>
         </pre>
-        <div id="selectionAttr_Sample">
-          <span>示例</span>
-          <div></div>
+        <div id="selectionClassed_Sample">
         </div>
       </div>
       <div class="margint50 marginb20">
@@ -82,12 +92,13 @@
   &lt;p&gt; Text 3 &lt;/p&gt;
   &lt;script&gt;
     var para = d3.selectAll("p");
-    console.log(para.empty())     //false
-    console.log(para.node())      //&lt;p&gt; Text 1 &lt;/p&gt;
-    console.log(para.size())      //3
+    console.log(para.empty())      //false
+    console.log(para.node())       //&lt;p&gt; Text 1 &lt;/p&gt;
+    console.log(para.size())       //3
   &lt;/script&gt;
           </code>
         </pre>
+        
       </div>
     </div>
   </div>
@@ -130,19 +141,56 @@ export default {
           "height":100,
           "fill":"#409eff"
         })
+    },
+    selectionClassed:function(){
+      var d3 = this.d3;
+      var dataset = [1,2,3,4,5];
+      var svg = d3.select("#selectionClassed_Sample").append("svg");
+      var rects = svg.selectAll("rect")
+        .data(dataset)
+        .enter()
+        .append("rect")
+        .attr({
+          "x":function(d,i){
+            return 20+i*160/dataset.length;
+          },
+          "y":function(d,i){
+            return 20
+          },
+          "width":20,
+          "height":100,
+          "fill":"#409eff"
+        })
+      rects.classed({
+        "even":function(d,i){return i%2==0?true:false;},
+        "odd":function(d,i){return i%2==0?false:true;}
+      })
+      rects.on("click",function(){
+        var rect=d3.select(this);
+        if(rect.classed("stroke")){
+          rect.classed("stroke",false);
+        }else{
+          rect.classed("stroke",true);
+        }
+      })
     }
   },
   ready:function(){
     this.selectionAttr();
+    this.selectionClassed();
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.axis path, .axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
+<style>
+svg .even{
+  fill: red;
+}
+svg .odd{
+  fill: orange;
+}
+svg .stroke{
+  stroke: black;
 }
 </style>

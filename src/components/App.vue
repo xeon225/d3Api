@@ -18,8 +18,8 @@
         <div v-for="item in data.data">
           <div class="fs-16 text-bolder margint20 lh-40"><span v-text="item.name" class="text-darker"></span></div>
           <div v-for="itemD in item.items" class="lh-40">
-            <div class="fs-14"><a v-link="{ path: itemD.url}" v-text="itemD.name" class="text-dark"></a></div>
-<!--             <div class="fs-12 lh-28" v-for="itemL in itemD.moduleList" v-if="false"><a :href="itemL.url" v-text="itemL.name" class="text-dark"></a></div> -->
+            <div class="fs-14"><a v-link="{ path: itemD.url}" v-text="itemD.name" class="text-dark" :class="$route.path == itemD.url && 'current'"></a></div>
+            <div class="fs-12 lh-28" v-for="itemL in itemD.moduleList" v-if="$route.path == itemD.url"><a v-link="{path: itemD.url+itemL.url}" v-text="itemL.name" class="text-dark"></a></div>
           </div>
         </div>
       </div>
@@ -74,6 +74,9 @@ html,body{
   transition: .15s ease-out;
 }
 .nav a:hover {
+    color: #409eff;
+}
+.nav a.current {
     color: #409eff;
 }
 .paddingh10 {
