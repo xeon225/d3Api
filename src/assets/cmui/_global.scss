@@ -29,3 +29,33 @@ pre{
     border-radius: 4px;
     background-color: hsla(220,4%,58%,.5);
 }
+
+/*登陆*/
+@media (min-width: 700px){
+    .nav{
+        width:200px;
+    }
+    .content{
+        padding-left:200px;
+    }
+    .btn-nav{
+        display:none;
+    }
+}
+@media (max-width: 700px){
+    .nav{
+        width:0;
+    }
+    .content{
+        padding-left:0;
+    }
+    .btn-nav{
+        display: block;
+    }
+    .show-nav{
+        background:#fff;
+        &.nav{
+            width:200px;
+        }
+    }
+}

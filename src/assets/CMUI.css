@@ -6014,3 +6014,28 @@ pre {
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background-color: rgba(144, 146, 152, 0.5); }
+
+/*登陆*/
+@media (min-width: 700px) {
+  .nav {
+    width: 200px; }
+
+  .content {
+    padding-left: 200px; }
+
+  .btn-nav {
+    display: none; } }
+@media (max-width: 700px) {
+  .nav {
+    width: 0; }
+
+  .content {
+    padding-left: 0; }
+
+  .btn-nav {
+    display: block; }
+
+  .show-nav {
+    background: #fff; }
+    .show-nav.nav {
+      width: 200px; } }

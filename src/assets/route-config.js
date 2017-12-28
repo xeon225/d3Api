@@ -6,7 +6,7 @@ import SelectAll from '../components/selection/select.vue';
 import Scales from '../components/scaleLinear/App.vue';
 
 export default {
-	'/': {
+	'': {
 		component: App						//默认
 	},
 		'selection': {
