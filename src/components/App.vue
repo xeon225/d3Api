@@ -58,9 +58,9 @@ export default {
   methods: {
     goAnchor:function(selector) {
       let anchor = this.$el.querySelector(selector);
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-      scrollTop = anchor.offsetTop;
+      let scrollTop = anchor.offsetTop;
       document.body.scrollTop = scrollTop;
+      document.documentElement.scrollTop = scrollTop
     }
   },
   ready:function(){

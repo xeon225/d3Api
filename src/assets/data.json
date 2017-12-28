@@ -25,6 +25,10 @@
 						{
 							"name":"selection.classed(name[,value])",
 							"url":"#selectionClassed"
+						},
+						{
+							"name":"selection.style(name[,value])",
+							"url":"#selectionClassed"
 						}
 					]
 				}
