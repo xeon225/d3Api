@@ -27,7 +27,7 @@
 							"url":"#selectionClassed"
 						},
 						{
-							"name":"selection.style(name[,value])",
+							"name":"selection.style(name[,value[,priority]])",
 							"url":"#selectionClassed"
 						}
 					]

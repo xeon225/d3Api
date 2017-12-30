@@ -28,7 +28,6 @@
         </pre>
       </div>
       
-      
       <!-- d3.selectionAttr() -->
       <div class="margint50 marginb20">
         <div class="fs-22 text-black" id="selectionAttr">selection.attr(name[,value])</div>
@@ -57,7 +56,7 @@
       </div>
       <!-- d3.selectionClassed() -->
       <div class="margint50 marginb20">
-        <div class="fs-22 text-black" id="selectionClassed">d3.classed(name[,value])</div>
+        <div class="fs-22 text-black" id="selectionClassed">selection.classed(name[,value])</div>
         <div class="lh-36">设定或获取选择集的css类,name是类名,value是一个布尔值</div>
         <pre v-highlight class="flex-container marginv10">
           <code class="flex1 paddingh10">
@@ -76,6 +75,28 @@
           </code>
         </pre>
         <div id="selectionClassed_Sample">
+        </div>
+      </div>
+
+      <!-- d3.selectionStyle() -->
+      <div class="margint50 marginb20">
+        <div class="fs-22 text-black" id="selectionClassed">selection.style(name[,value[,priority]])</div>
+        <div class="lh-36">返回选择集中第一个非空元素中名为name的样式值，或设置选择集中所有元素中名为name的样式值为value参数指定的值</div>
+        <pre v-highlight class="flex-container marginv10">
+          <code class="flex1 paddingh10">
+  rects.classed({   //根据索引给元素添加不同的css类
+    "even":function(d,i){return i%2==0?true:false;},
+    "odd":function(d,i){return i%2==0?false:true;}
+  })
+  rects.style({
+    "stroke-width":5,
+    "stroke":function(d,i){
+      return "rgb("+10*d+","+10*(25-(d*3))+","+d*2+")";
+    }
+  })
+          </code>
+        </pre>
+        <div id="selectionStyle_Sample">
         </div>
       </div>
       <div class="margint50 marginb20">
@@ -173,11 +194,39 @@ export default {
           rect.classed("stroke",true);
         }
       })
+    },
+    selectionStyle:function(){
+      var d3 = this.d3;
+      var dataset = [1,2,3,4,5];
+      var svg = d3.select("#selectionStyle_Sample").append("svg");
+      var rects = svg.selectAll("rect")
+        .data(dataset)
+        .enter()
+        .append("rect")
+        .attr({
+          "x":function(d,i){
+            return 20+i*160/dataset.length;
+          },
+          "y":function(d,i){
+            return 20
+          },
+          "width":20,
+          "height":100,
+          "fill":"none"
+        })
+      rects.style({
+        "stroke-width":5,
+        "stroke":function(d,i){
+          return "rgb("+10*d+","+10*(25-(d*3))+","+d*2+")";
+        }
+      });
+      // console.log(rects.style("stroke"))
     }
   },
   ready:function(){
     this.selectionAttr();
     this.selectionClassed();
+    this.selectionStyle();
   }
 }
 </script>

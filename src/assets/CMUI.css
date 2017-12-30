@@ -6018,10 +6018,10 @@ pre {
 /*登陆*/
 @media (min-width: 700px) {
   .nav {
-    width: 200px; }
+    width: 250px; }
 
   .content {
-    padding-left: 200px; }
+    padding-left: 250px; }
 
   .btn-nav {
     display: none; } }
@@ -6038,4 +6038,4 @@ pre {
   .show-nav {
     background: #fff; }
     .show-nav.nav {
-      width: 200px; } }
+      width: 250px; } }

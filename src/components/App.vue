@@ -1,7 +1,7 @@
 <template>
   <div class="flex-container top left">
-    <div class="btn-nav pos-f top15 right25 bg-white padding5" @click="showNav = !showNav" style="box-shadow: 2px 2px 4px #ccc;border-radius: 4px;">
-      <svg width="40" height="40" viewBox="0,0,96,96">
+    <div class="btn-nav pos-f top15 right25 bg-white padding5 clearfix" @click="showNav = !showNav" style="box-shadow: 2px 2px 4px #ccc;border-radius: 4px;">
+      <svg width="40" height="40" viewBox="0,0,96,96" class="float-left">
         <path :d="data.logo" style="fill:#409eff"></path>
       </svg>
     </div>
@@ -76,12 +76,12 @@ html,body{
 
 .nav{
   transition: .2s ease-out;
-  width: 200px;
+  width: 250px;
   height: 100%;
   overflow: hidden;
 }
 .nav>div{
-  width: 200px;
+  width: 250px;
 }
 .nav a{
   margin: 0;
