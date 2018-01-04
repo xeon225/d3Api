@@ -1,7 +1,7 @@
 import App from '../components/d3/App.vue';
 import Selection from '../components/selection/App.vue';
 import SelectAll from '../components/selection/select.vue';
-
+import Transition from '../components/selection/transition.vue';
 
 import Scales from '../components/scaleLinear/App.vue';
 
@@ -15,7 +15,10 @@ export default {
 			'select': {
 				component: SelectAll		//选择
 			},
-		'scales': {
-			component: Scales
+			'transition': {
+				component: Transition		//过度
+			},
+		'scales': {						
+			component: Scales				//比例尺
 		}
 }

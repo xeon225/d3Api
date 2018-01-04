@@ -14,12 +14,12 @@
           <div class="marginl10 text-bolder" style="font-size: 22px;" v-text="data.title"></div>
         </a>
       </div>
-      <div class="paddingh20" v-if="routerReady">
+      <div class="paddingl20" v-if="routerReady" style="height:calc(100% - 90px);overflow-y: scroll">
         <div v-for="item in data.data">
           <div class="fs-16 text-bolder margint20 lh-40"><span v-text="item.name" class="text-darker"></span></div>
           <div v-for="itemD in item.items" class="lh-40">
-            <div class="fs-14"><a :href="'#!'+itemD.url" v-text="itemD.name" class="text-dark" :class="selected == itemD.url && 'current'" @click="showNav = !showNav"></a></div>
-            <div class="fs-12 lh-28" v-for="itemL in itemD.moduleList" v-show="selected == itemD.url"><a href="javascript:void(0)" @click="goAnchor(itemL.url)" v-text="itemL.name" class="text-dark"></a></div>
+            <div class="fs-14"><a :href="'#!'+itemD.url" v-text="itemD.name" class="text-dark dis-b" :class="selected == itemD.url && 'current'" @click="showNav = !showNav"></a></div>
+            <div class="fs-12 lh-28" v-for="itemL in itemD.moduleList" v-show="selected == itemD.url"><a href="javascript:void(0)" @click="goAnchor(itemL.url)" v-text="itemL.name" class="text-light"></a></div>
           </div>
         </div>
       </div>
@@ -80,6 +80,9 @@ html,body{
   height: 100%;
   overflow: hidden;
 }
+.content{
+  transition: .2s ease-out;
+}
 .nav>div{
   width: 250px;
 }
@@ -95,6 +98,7 @@ html,body{
 }
 .nav a.current {
     color: #409eff;
+    /*border-right:2px solid currentColor;*/
 }
 .paddingh10 {
   padding-left:10px !important;
