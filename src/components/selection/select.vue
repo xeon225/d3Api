@@ -241,16 +241,17 @@
         <div class="lh-36">返回需要移除的元素选择</div>
         <pre v-highlight class="flex-container marginv10">
           <code class="flex1 paddingh10">
-  var data = ["text1", "text2", "text3", "text4"];
-  var update_selection = svg.selectAll('text')
+  var update_selection = svg.selectAll('div')
               .data(data)
               .enter()
-              .append("text").attr({
-                x: '20',
-                y: function(d, i){return 20 + 20 * i;},
-                fill: 'green'
-              })
-              .text(function (d, i) {return d;})
+              .append("div")
+              .text(function (d) {return d;});
+  var exitSvg = svg.selectAll("div")
+              .data([7, 8, 9, 5, 6], function(d) {return d;})
+  exitSvg.enter()
+          .append("div")
+          .text(function(d) {return d;})
+  exitSvg.exit().remove()
           </code>
         </pre>
         <div id="selectionExit_Sample">

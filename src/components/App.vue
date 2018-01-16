@@ -14,7 +14,7 @@
           <div class="marginl10 text-bolder" style="font-size: 22px;" v-text="data.title"></div>
         </a>
       </div>
-      <div class="paddingl20" v-if="routerReady" style="height:calc(100% - 90px);overflow-y: scroll">
+      <div class="paddingl20" v-if="routerReady" style="height:calc(100% - 90px);overflow-y: scroll;overflow-x: hidden;">
         <div v-for="item in data.data">
           <div class="fs-16 text-bolder margint20 lh-40"><span v-text="item.name" class="text-darker"></span></div>
           <div v-for="itemD in item.items" class="lh-40">
