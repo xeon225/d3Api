@@ -129,28 +129,72 @@
           <div class="btn small radius reverse marginr20" @click="transitionStyle('#transitionStyleTween_Sample',true)">开启动画</div>
         </div>
       </div>
-
-      <!-- transition.styleTween() -->
+      <!-- transition.text() -->
       <div class="marginb20">
         <div class="fs-22 text-black" id="transitionText">transition.text(value)</div>
         <div class="lh-36">文本(text)操作符是基于textContent属性的</div>
         <pre v-highlight class="flex-container marginv10">
           <code class="flex1 paddingh10">
-  d3.select(selectId).selectAll("svg")
-    .transition()
-    .duration(1000)
-    .styleTween("background-color", tween)
-
-  function tween(d, i, a){
-    return d3.interpolate("green", "orange")
-  }
+  //先创建一个文本元素,并设置内容为"Haha"
+  svg.append('text')
+      .attr({
+        x: 50,
+        y: 50
+      }).text("Haha")
+  //设置过渡开始后元素的文本,取代原有的子元素
+  svg.select('text')
+      .transition()
+      .duration(1500)     //开启动画
+      .attr({             //设置动画持续时间1500ms
+        x: 100,
+        y: 100
+      }).text("Oh, yeah") //设置过渡开始后元素的文本内容为"OH, yeah"
           </code>
         </pre>
-        <div id="transitionStyleTween_Sample" class="flex-container left top">
-          <div class="btn small radius reverse marginr20" @click="transitionStyle('#transitionStyleTween_Sample',true)">开启动画</div>
+        <div id="transitionText_Sample" class="flex-container left top">
+          <div class="btn small radius reverse marginr20" @click="transitionText('#transitionText_Sample',true)">开启动画</div>
         </div>
       </div>
-
+      <!-- transition.tween() -->
+      <div class="marginb20">
+        <div class="fs-22 text-black" id="transitionTween">transition.tween(name,factory)</div>
+        <div class="lh-36">给指定的名称(属性和样式名)注册一个自定义的补间函数</div>
+        <pre v-highlight class="flex-container marginv10">
+          <code class="flex1 paddingh10">
+  svg.select('text').text(10)
+    .transition()
+    .duration(7500)
+    .tween("text", function(){
+      //过渡区间为[10 ,100]
+      var interpolate = d3.interpolate(d3.select(this).text(),100);
+      return function(t) {d3.select(this).text(interpolate(t));};
+    })
+          </code>
+        </pre>
+        <div id="transitionTween_Sample" class="flex-container left top">
+          <div class="btn small radius reverse marginr20" @click="transitionText('#transitionTween_Sample',true)">开启动画</div>
+        </div>
+      </div>
+      <!-- transition.remove() -->
+      <div class="marginb20">
+        <div class="fs-22 text-black" id="transitionRemove">transition.remove()</div>
+        <div class="lh-36">在过渡结束时删除选定的元素</div>
+        <pre v-highlight class="flex-container marginv10">
+          <code class="flex1 paddingh10">
+  svg.select('text').text(10)
+    .transition()
+    .duration(7500)
+    .tween("text", function(){
+      //过渡区间为[10 ,100]
+      var interpolate = d3.interpolate(d3.select(this).text(),100);
+      return function(t) {d3.select(this).text(interpolate(t));};
+    })
+          </code>
+        </pre>
+        <div id="transitionRemove_Sample" class="flex-container left top">
+          <div class="btn small radius reverse marginr20" @click="transitionRemove('#transitionRemove_Sample',true)">开启动画</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -300,11 +344,71 @@ export default {
             .duration(1000)
             .styleTween("background-color", tween)
 
-          function tween(d, i, a){
+          function tween(d, i, a) {
             return d3.interpolate("green", "orange")
           }
         }
 
+      }
+    },
+    transitionText: function(id, start) {
+      var d3 = this.d3;
+      var selectId = id;
+      if (!start) {
+        var svg = d3.select(selectId).append("svg")
+        //先创建一个文本元素,并设置内容为"Haha"
+        svg.append('text')
+          .attr({
+            x: 50,
+            y: 50
+          }).text(10)
+        if (selectId == '#transitionText_Sample') {
+          svg.select('text')
+            .text("Haha")
+        }
+      } else {
+        if (selectId == '#transitionText_Sample') {
+          var svg = d3.select(selectId).select("svg")
+          //设置过渡开始后元素的文本,取代原有的子元素
+          svg.select('text')
+            .transition()
+            .duration(1500) //开启动画
+            .attr({ //设置动画持续时间1500ms
+              x: 100,
+              y: 100
+            }).text("Oh, yeah") //设置过渡开始后元素的文本内容为"OH, yeah"
+        } else {
+          var svg = d3.select(selectId).select("svg")
+          svg.select('text').text(10)
+            .transition()
+            .duration(7500)
+            .tween("text", function(){
+              //过渡区间为[10 ,100]
+              var interpolate = d3.interpolate(d3.select(this).text(),100);
+              return function(t) {d3.select(this).text(interpolate(t));};
+            })
+        }
+
+      }
+    },
+    transitionRemove: function(id, start) {
+      var d3 = this.d3;
+      var selectId = id;
+      if (!start) {
+        var svg = d3.select(selectId).append("svg")
+        svg.append('circle')
+          .attr({
+            cx: 50,
+            cy: 50,
+            r: 40
+          })
+      } else {
+        var svg = d3.select(selectId).select("svg")
+        svg.selectAll('circle')
+          .transition()
+          .duration(1500)
+          .attr('r', 0)
+          .remove()
       }
     }
   },
@@ -315,7 +419,9 @@ export default {
     this.transitionEase('#transitionAttrTween_Sample');
     this.transitionStyle('#transitionStyle_Sample');
     this.transitionStyle('#transitionStyleTween_Sample');
-
+    this.transitionText('#transitionText_Sample');
+    this.transitionText('#transitionTween_Sample');
+    this.transitionRemove('#transitionRemove_Sample');
   }
 }
 

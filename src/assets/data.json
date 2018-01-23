@@ -163,6 +163,14 @@
             {
               "name": "transition.tween(name,factory)",
               "url": "#transitionTween"
+            },
+            {
+              "name": "transition.remove()",
+              "url": "#transitionRemove"
+            },
+            {
+              "name": "transition.select(selector)",
+              "url": "#transitionSelect"
             }
           ]
         }
